@@ -1,0 +1,88 @@
+body, html{
+width: 100%;
+max-width: 100%;
+height: 100%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 20px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 0.9em;
+color: #444444;
+text-align: center;
+background: url('images/space.jpg');
+}
+
+code{
+width: 80%;
+color: white;
+text-align: left;
+margin: auto;
+display: block;
+background: gray;
+padding: 10px;
+margin-top: 20px;
+margin-bottom: 20px;
+white-space: normal;
+}
+		
+#space{width: 100%; max-width: 100%; height: 100%; max-height: 100%; overflow: hidden; background: url('images/space.jpg') black; position: relative; color: white; margin-bottom: 50px;}
+#space h1{text-align: center; width: 100%; position: absolute; top: 50%; left: 50%; margin-left: -50%; margin-top: -20px;}
+#comet1, #comet2, #comet3, #comet4, #comet5, #planet{position: absolute; top: 0px; left: 0px; z-index: 80;}
+#comet1, #comet2, #comet3, #comet4, #comet5{max-height: 15px;}
+#comet3, #comet5{z-index: 90;}
+	
+.container{
+position: relative;
+z-index: 80;
+width: 100%;
+max-width: 1000px; 
+background-color: white;
+margin: auto;
+text-align: left;
+}
+
+.wrapper{padding: 10px;}
+
+/*General Text*/
+p{text-align: left;}
+
+/*Alignments*/
+.clear{clear: both;}
+.center {margin: auto;}
+.right {float: right;}
+.left {float: left;}
+.text-center{text-align: center;}
+.text-right{text-align: right;}
+.text-left{text-align: left;}
+
+
+/*Nice rounded dark background with a drop shadow*/
+.text-container{
+	background: url('../v6images/top_border_v6.jpg') no-repeat;
+	background-position: -10px -15px;
+	/*Drop Shadow*/
+	box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+	/*Rounded Corners*/
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	/*A little space at the bottom*/
+	margin-bottom: 10px; 
+	border: 1px solid #E5E5E5;
+}
+
+.border-radius10{
+border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+
+#banner-logo{max-width: 499px; float: left;}
+#why{width: 45%; float: left; font-size: 1.5em; text-align: left; padding-left: 10px;}
+
+@media (max-width: 1024px){
+  #banner-logo{width: 100%; clear: both; float: none; margin: auto; text-align: center;}
+  #why{width: 100%; padding: 0px;}
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<head>
+	<title>jwScrollLoop Plugin Tutorial</title>
+	<script type = "text/javascript" src = "http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="script/jwscrollloop.js"></script>
+	<script type="text/javascript" src="http://jworksstudios.com/plugins/jwtextureswim/js/jwtextureswim-1.0.min.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "index.css" />
+
+    <meta name = "viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+
+<div id = "space">
+	<h1>jwScrollLoop - A jQuery-based looping and scrolling plugin</h1>
+	<img id = "comet1" src = "images/comet.png" />
+	<img id = "comet2" src = "images/comet.png" />
+	<img id = "comet3" src = "images/comet.png" />
+	<img id = "comet4" src = "images/comet.png" />
+	<img id = "comet5" src = "images/comet.png" />
+	<img id = "planet" src = "images/planet.png" />
+</div>
+
+<div class = "container">
+<div class = "wrapper">
+<img id = "banner-logo" src="images/JWScrollLoop_focus.jpg" title = "jwScrollLoop banner logo" alt = "jwScrollLoop banner logo" />
+
+<div id = "why">
+I needed a way to animate multiple images and divs alike, but I also needed looping functionality and additional options. So I created a simple plugin to scroll objects the way I needed them to:<br />jwScrollLoop<br />
+<div class="text-container" style="background: blue; overflow: hidden;"><img id="top1" alt="dc1" src="images/dc1.png" width="300" height="143" /></div>
+<div class="clear"></div>
+</div>
+
+<div style = "clear: both;"></div>
+
+
+<p>jwScrollLoop is a simple script based on jQuery and the animation method. The script offers up a quick way to enable immediate scrolling right out of the box and multiple options to customize it to get more uses out of it. Below is a tutorial to get you set up, explain the parameters and what it can do for you...</p>
+
+<h2 style="text-align: left;">Get your scripts</h2>
+<p>
+  <a href = "http://code.jquery.com/jquery-1.8.2.min.js" target = "_blank">jQuery (1.8.2)</a> <br />
+  <a href = "script/jwscrollloop.js">jwScrollLoop</a> (<a href = "script/jwscrollloop.min.js">min</a>) <br /><br />
+  -- or -- <br /><br />
+  <a href = "jwscrollloop_demo_and_tutorial.zip">.zip</a> (full demo and tutorial)
+</p>
+
+<h2 style="text-align: left;">Link your .js scripts</h2>
+<p>Now that you have the script, you need to link to <em>it</em> and a jQuery .js file. This script was created while linking to jQuery v1.8.2, so I'll recommend that, but you should not have an issue linking to other versions of jQuery.</p>
+
+<code class="border-radius10">&lt;script type = "text/javascript" src = "http://code.jquery.com/jquery-1.8.2.min.js"&gt;&lt;/script&gt;<br />
+&lt;script type = "text/javascript" src = "script/jwscrollloop.js"&gt;&lt;/script&gt;</code>
+<h2 style="text-align: left;">Set the stage</h2>
+<p>Before you can start scrolling, you have to layout your page as you normally would. For the sake of this demo, the page will consist of a div-container and an image.</p>
+
+<code class="border-radius10">&lt;div id="container-div" style="background: blue; width: 800px; height: 300px;"&gt;<br />
+&lt;img id="dc1" alt="" src="images/dc1.png" /&gt;<br />
+&lt;/div&gt;</code>
+
+&nbsp;
+<p style="text-align: center;">Result somewhat similar to this</p>
+
+<div class="center" style="background: blue; width: 80%; height: 300px;"><img alt="" src="images/dc1.png" /></div>
+&nbsp;
+<h2 style="text-align: left;">Animation script</h2>
+<p>To animate image dc1, place the line of code in your javascript section between the &lt;script&gt; tags</p>
+
+<code class="border-radius10">$("#dc1").scrollLoop();</code>
+<p style="text-align: center;">And you should see something like:</p>
+
+<div class="center" style="background: blue; width: 80%; height: 300px;"><img id="dc1" alt="" src="images/dc1.png" /></div>
+
+<h2 style="text-align: left;">So what's happening in the function?</h2>
+<p>As you'll see, just using the default values you will get easy animation for your object. Here are the default values and definition for the function:
+
+<br /><br />
+<em><strong style="font-size: 1.5em;">function scrollLoop()</strong></em>:<br />
+'<strong>time' :<em> </em><span style="color: #339966;"><em> 5000</em></span>;</strong>  - The duration it takes to complete the animation (in milliseconds).<br />
+'<strong>offsetX' :<em><span style="color: #339966;">  1000</span></em>;</strong> - The starting X-offset from the original position (in pixels; i.e., 1000px means 1000px to the right from the original position)<br />
+'<strong>deltaX' :<span style="color: #339966;"><em> -1000</em></span>;</strong> - The ending X-offset from the original position (in pixels; i.e., -1000px). +value to go right, -value to go left<br />
+'<strong>offsetY' :<em><span style="color: #339966;"> 0</span></em>;</strong> - The starting Y-offset from the original position (in pixels; i.e., -1000px = up from the original position)<br />
+'<strong>deltaY' :<em><span style="color: #339966;"> 0</span></em>;</strong> - The ending Y-offset from the original position (in pixels; i.e., 1000px). +value to go down, -value to go up<br />
+'<strong>position_type' : <span style="color: #339966;"><em>"relative"</em></span>;</strong> The positioning type of the object. Relative or Absolute. Makes a difference in where the object begins and ends.<br />
+'<strong>play_count' :<span style="color: #339966;"><em> -1</em></span>;</strong> - The number of times to play the animation. -1 will play infinitely.<br />
+</p>
+
+<p>Let's highlight what's going on.
+<ul>
+	<li style="text-align: left;">From the original position of the image, we offset it on the X-axis to the position where we want it to start. By default, the offset is +1000px which means the image will start <strong>1000 pixels to the</strong> <em><strong>right</strong> </em>of its original position. Conversely, if we wanted it to start 300 pixels to the <strong><em>left</em> </strong>of its original position, we would pass -300px.</li>
+	<li style="text-align: left;"><em><strong>deltaX</strong> </em> is the ending position from the <strong>original</strong> <strong>position</strong>, not the start position, which is offsetX.</li>
+	<li style="text-align: left;">Setting offsetY and deltaY to 0px makes sure that A) the image starts at the original Y-position and B) it will end on the same Y-position, which means we'll get a straight trajectory (in this case, right to left).</li>
+	<li style="text-align: left;"><strong>position_type. </strong>This is an important variable to get the image to do what you want it to. One MUST be set and by default it's relative. Changing it to absolute positioning allows more control over where your object ultimately ends up on the screen.</li>
+</ul>
+The the other values should be self explanatory. If not, play around with them to get a better understanding on how the function works. As a matter of fact...
+</p>
+
+<h2 style="text-align: left;">Let's have some fun</h2>
+<p>Let's make some changes to the function to show the different effect you can get. At the moment we have the image moving right to left on a flat plane. Let's add a new function to the mix that will go in the opposite direction and go from bottom to top. And while we're at it, let's modify the function for <em>dc1 </em>to speed the cloud up to a more realistic pace...</p>
+
+<p>In the section where you have the image <em>dc1</em> displayed, input an image tag (pointing to the same directory) and have it target the image <strong><em>dp1.png</em></strong>. Also, make sure the id is <em>dp1</em>, too.</p>
+
+<code class="border-radius10">&lt;div id="container-div" style="background: blue; width: 800px; height: 300px;"&gt;<br />
+&lt;img id="dc1" alt="" src="images/dc1.png" /&gt;<br />
+&lt;img id="dp1" alt="" src="images/dp1.png" /&gt;<br />
+&lt;/div&gt;</code>
+
+<p>Now, add another line of code in the javascript area with our new adjustments...</p>
+
+<code class="border-radius10">$("#dc1").scrollLoop({'time':1000});<br />
+$("#dp1").scrollLoop({'time':10000, 'offsetX':-600, 'deltaX':600, 'offsetY':200, 'deltaY':-300});
+</code>
+<p>And let's also hide the new image until it enters the boundaries of our giant blue box by adding an <em>overflow: hidden</em> value to the exisiting div, <em>container</em>.</p>
+
+<code class="border-radius10">&lt;div id="container-div" style="background: blue; width: 800px; height: 300px; overflow: hidden;"&gt;</code>
+
+&nbsp;
+<div class="center" style="background: blue; width: 80%; height: 300px; overflow: hidden;"><img id="dc1_02" alt="" src="images/dc1.png" />
+<img id="dp1" alt="" src="images/dp1.png" /></div>
+&nbsp;
+<h2 style="text-align: left;">Wrapping up...</h2>
+<p>The main power of this script is to allow infinite or finite plays of the animation in a quick and simple way. It doesn't just work with images other elements. Crappy graphics aside, if you use your imagination, this can be used to spruce up your web designs with ease. The .js has another function that allows you to customize all of the object's css properties by way of passing arrays. It has default values too so play around with it and you can come up with some unique effects.
+
+Hopefully you like it and pass it on. Take it, tweak it, pass it on.</p>
+
+<code class="border-radius10">
+	&lt;html&gt;<br />
+	&lt;head&gt;<br />
+	&lt;script type = "text/javascript" src = "http://code.jquery.com/jquery-1.8.2.min.js"&gt;&lt;/script&gt;<br />
+	&lt;script type = "text/javascript" src = "script/jwscrollloop.js"&gt;&lt;/script&gt;<br />
+	&lt;/head&gt;<br /><br />
+	&lt;body&gt;<br />
+	&lt;div id="container-div" style="background: blue; width: 800px; height: 300px; overflow: hidden;"&gt;<br />
+	&lt;img id="dc1" alt="" src="images/dc1.png" /&gt;<br />
+	&lt;img id="dp1" alt="" src="images/dp1.png" /&gt;<br />
+	&lt;/div&gt;<br /><br />
+	&lt;script type = "text/javascript"&gt;<br />
+	$("#dc1").scrollLoop({'time':1000});<br />
+	$("#dp1").scrollLoop({'time':10000, 'offsetX':-600, 'deltaX':600, 'offsetY':200, 'deltaY':-300});<br />
+	&lt;/script&gt;<br /><br />
+	&lt;/body&gt;<br />
+	&lt;/html&gt;
+</code>
+
+<div style = "text-align: left; margin-top: 50px; margin-bottom: 50px;">
+<h1>jwScrollLoop</h1>
+Jerome "PJ" Williams<br />
+<a href = "http://www.jworksstudios.com/">www.JWorksStudios.com</a><br />
+<a href = "http://www.twitter.com/jworksstudios">twitter/@JWorksStudios</a><br />
+<a href = "https://plus.google.com/u/0/118037043563801611497">g+/JWorksStudios</a>
+
+<br /><br />
+
+<br /><br />
+<b>GitHub</b><br />
+If you have ideas for improvements, don't hesitate to make changes. Grab it from GitHub and make it better!<br />
+<a href = "http://github.com/jworksstudios/jwscrollloop">http://github.com/jworksstudios/jwscrollloop</a>
+<br /><br />
+Additional plugin used in this demo, <a href = "http://jworksstudios.com/plugins/jwtextureswim"><b>jwTextureSwim</b></a>, to animate  the space background.<br />
+<a href = "http://github.com/jworksstudios/jwtextureswim">http://github.com/jworksstudios/jwtextureswim</a>
+
+
+<br /><br />
+<a href = "http://www.jworksstudios.com/">&copy; JWorks Studios</a> | <a href = "http://www.jworksstudios.com/plugins">Plugins</a>
+
+</div>
+</div><!-- wrapper -->
+</div><!-- container -->
+
+<script type="text/javascript">
+	$("#top1").scrollLoop();
+	$("#dc1").scrollLoop();
+	$("#dc1_02").scrollLoop({'time':1000});
+	$("#dp1").scrollLoop({'time':10000,'offsetX':-600,'deltaX':600,'offsetY':200,'deltaY':-300});
+	
+	$("#planet").scrollLoop({'time':10000,'offsetX':-1200,'deltaX':1200,'offsetY':0,'deltaY':0, position_type: "absolute"});
+	$("#comet1").scrollLoop({'time':1000,'offsetX':-1200,'deltaX':1200,'offsetY':0,'deltaY':0, position_type: "absolute"});
+	$("#comet2").scrollLoop({'time':1000,'offsetX':-1200,'deltaX':1700,'offsetY':"10%",'deltaY':"10%", position_type: "absolute"});
+	$("#comet3").scrollLoop({'time':200,'offsetX':-1200,'deltaX':1200,'offsetY':"40%",'deltaY':"40%", position_type: "absolute"});
+	$("#comet4").scrollLoop({'time':350,'offsetX':-1200,'deltaX':1200,'offsetY':"55%",'deltaY':"55%", position_type: "absolute"});
+	$("#comet5").scrollLoop({'time':700,'offsetX':-1200,'deltaX':1200,'offsetY':"70%",'deltaY':"70%", position_type: "absolute"});
+	
+	// External plugin.
+	$("#space, html").textureSwim({distanceX: 100, distanceY: -20});
+</script>
+
+</body>
+</html>
