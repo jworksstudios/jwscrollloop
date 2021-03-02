@@ -1,10 +1,10 @@
 jwScrollLoop v1
 Jerome "PJ" Williams
-www.jworksstudios.com/plugins/jwscrollloop
+https://www.jworksstudios.com/plugins/jwscrollloop
 1/22/2013
 	
-Demo - http://jworksstudios.github.io/jwscrollloop
-GIT - http://github.com/jworksstudios/jwscrollloop
+Demo - https://jworksstudios.github.io/jwscrollloop
+GIT - https://github.com/jworksstudios/jwscrollloop
 	
 -GNU Liscense-
 -Free to use + tweak. Leave some credit when you can.-
